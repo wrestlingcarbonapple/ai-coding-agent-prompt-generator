@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AI Coding Prompt Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="page__header">
+        <h1 class="page__title">AI Coding Prompt Generator</h1>
+        <p class="page__subtitle">
+          Fill in the details to generate a high-quality prompt for coding agents.
+        </p>
+      </header>
+
+      <section class="page__content">
+        <form id="promptForm" class="form" autocomplete="off" novalidate>
+          <fieldset class="form__section">
+            <legend class="form__legend">Core</legend>
+
+            <label class="form__field">
+              <span class="form__label">Language / Stack</span>
+              <input
+                type="text"
+                id="languageStack"
+                name="languageStack"
+                list="languageStackOptions"
+                placeholder="TypeScript + Node.js"
+                required
+              />
+              <datalist id="languageStackOptions">
+                <option value="TypeScript + Node.js"></option>
+                <option value="TypeScript + React + Vite"></option>
+                <option value="JavaScript + Express"></option>
+                <option value="Python + FastAPI"></option>
+                <option value="Python + Django"></option>
+                <option value="Go + Gin"></option>
+                <option value="Java + Spring Boot"></option>
+                <option value="C# + .NET"></option>
+                <option value="Rust + Axum"></option>
+              </datalist>
+              <small class="form__hint">
+                Choose a popular stack or type your own.
+              </small>
+            </label>
+
+            <label class="form__field">
+              <span class="form__label">Goal (1–3 sentences, business terms)</span>
+              <textarea
+                id="goal"
+                name="goal"
+                rows="3"
+                placeholder="Users can upload CSV files, validate them, and store them in a Postgres database."
+                required
+              ></textarea>
+            </label>
+          </fieldset>
+
+          <fieldset class="form__section">
+            <legend class="form__legend">Context & constraints</legend>
+
+            <label class="form__field">
+              <span class="form__label">Tech stack</span>
+              <input
+                type="text"
+                id="techStack"
+                name="techStack"
+                list="techStackOptions"
+                placeholder="Node.js 22, TypeScript 5, PostgreSQL 16, Docker"
+              />
+              <datalist id="techStackOptions">
+                <option value="Node.js 22, TypeScript 5, PostgreSQL 16, Docker"></option>
+                <option value="Node.js 22, TypeScript 5, MongoDB, Docker"></option>
+                <option value="Python 3.12, FastAPI, PostgreSQL 16, Docker"></option>
+                <option value="Python 3.12, Django, PostgreSQL 16, Docker"></option>
+                <option value="Go 1.23, PostgreSQL 16, Docker"></option>
+                <option value="Java 21, Spring Boot 3, PostgreSQL 16, Docker"></option>
+                <option value="C# 13, .NET 9, SQL Server, Docker"></option>
+              </datalist>
+              <small class="form__hint">
+                Optional. You can list runtimes, DBs, tooling, etc.
+              </small>
+            </label>
+
+            <label class="form__field">
+              <span class="form__label">Architecture</span>
+              <input
+                type="text"
+                id="architecture"
+                name="architecture"
+                list="architectureOptions"
+                placeholder="Clean architecture with service + repository layers"
+              />
+              <datalist id="architectureOptions">
+                <option value="Hexagonal architecture"></option>
+                <option value="Clean architecture"></option>
+                <option value="Layered architecture (controller, service, repository)"></option>
+                <option value="Event-driven architecture"></option>
+                <option value="CQRS + event sourcing"></option>
+                <option value="Microservices"></option>
+                <option value="Modular monolith"></option>
+              </datalist>
+            </label>
+
+            <label class="form__field">
+              <span class="form__label">Design patterns to apply</span>
+              <input
+                type="text"
+                id="designPatterns"
+                name="designPatterns"
+                list="designPatternOptions"
+                placeholder="Strategy, Factory, Repository"
+              />
+              <datalist id="designPatternOptions">
+                <option value="Strategy"></option>
+                <option value="Factory"></option>
+                <option value="Abstract Factory"></option>
+                <option value="Command"></option>
+                <option value="Observer"></option>
+                <option value="Chain of Responsibility"></option>
+                <option value="Repository"></option>
+                <option value="Adapter"></option>
+                <option value="Decorator"></option>
+                <option value="CQRS"></option>
+                <option value="Saga"></option>
+              </datalist>
+              <small class="form__hint">
+                Comma-separated. You can mix presets and your own.
+              </small>
+            </label>
+
+            <label class="form__field">
+              <span class="form__label">Non-functional requirements</span>
+              <textarea
+                id="nonFunctional"
+                name="nonFunctional"
+                rows="3"
+                placeholder="Low latency, horizontally scalable, structured logging, OpenTelemetry tracing, basic rate limiting."
+              ></textarea>
+            </label>
+
+            <label class="form__field">
+              <span class="form__label">Error handling</span>
+              <textarea
+                id="errorHandling"
+                name="errorHandling"
+                rows="3"
+                placeholder="Centralized error handling, typed error objects, retries with exponential backoff for transient errors, circuit breaker around external APIs."
+              ></textarea>
+            </label>
+
+            <label class="form__field">
+              <span class="form__label">Configuration</span>
+              <textarea
+                id="configuration"
+                name="configuration"
+                rows="3"
+                placeholder="Config via environment variables, validated at startup, secrets from a managed secret store."
+              ></textarea>
+            </label>
+          </fieldset>
+
+          <fieldset class="form__section">
+            <legend class="form__legend">Deliverables & style</legend>
+
+            <label class="form__field">
+              <span class="form__label">Unit test framework</span>
+              <input
+                type="text"
+                id="unitTestFramework"
+                name="unitTestFramework"
+                list="unitTestFrameworkOptions"
+                placeholder="Jest"
+              />
+              <datalist id="unitTestFrameworkOptions">
+                <option value="Jest"></option>
+                <option value="Vitest"></option>
+                <option value="Mocha + Chai"></option>
+                <option value="Playwright (for E2E)"></option>
+                <option value="Pytest"></option>
+                <option value="JUnit 5"></option>
+                <option value="xUnit"></option>
+              </datalist>
+            </label>
+
+            <label class="form__field">
+              <span class="form__label">Additional style or quality notes (optional)</span>
+              <textarea
+                id="styleQuality"
+                name="styleQuality"
+                rows="3"
+                placeholder="Prefer functional composition where practical; avoid global state; code should be easily extensible for future features."
+              ></textarea>
+            </label>
+          </fieldset>
+
+          <div class="form__actions">
+            <button type="submit" class="button button--primary">
+              Generate prompt
+            </button>
+            <button type="reset" class="button button--secondary">
+              Reset
+            </button>
+          </div>
+        </form>
+
+        <section class="output">
+          <div class="output__header">
+            <h2 class="output__title">Generated prompt</h2>
+            <button id="copyButton" type="button" class="button button--ghost">
+              Copy to clipboard
+            </button>
+          </div>
+          <textarea
+            id="outputPrompt"
+            class="output__textarea"
+            readonly
+            placeholder="Generated prompt will appear here."
+          ></textarea>
+          <p id="copyStatus" class="output__status" aria-live="polite"></p>
+        </section>
+      </section>
+    </main>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
