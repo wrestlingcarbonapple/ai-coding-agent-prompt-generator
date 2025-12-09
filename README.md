@@ -3,6 +3,8 @@
 A lightweight, production-ready single page application for generating high-quality prompts for instructing AI agents to write professional, production-grade code.  
 The app runs entirely client-side (HTML, CSS, JavaScript) and is fully compatible with GitHub Pages.
 
+Available at [ai-coding-agent-prompt-generator](https://wrestlingcarbonapple.github.io/ai-coding-agent-prompt-generator/)
+
 ---
 
 ## Features
